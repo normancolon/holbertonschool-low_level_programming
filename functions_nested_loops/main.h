@@ -30,3 +30,12 @@ void jack_bauer(void);
 
 void times_table(void);
 
+
+int powB(int base, int power);
+
+int numLength(int num);
+
+void putnchar(int num);
+
+void print_times_table(int n);
+
