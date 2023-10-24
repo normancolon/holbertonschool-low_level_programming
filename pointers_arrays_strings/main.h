@@ -1,23 +1,23 @@
-#include <stdio.h>
-#include <stddef.h>
-
 int _putchar(char c);
 
-char *_memset(char *s, char b, unsigned int n);
+void reset_to_98(int *n);
 
-char *_memcpy(char *dest, char *src, unsigned int n);
+void swap_int(int *a, int *b);
 
-char *_strchr(char *s, char c);
+int _strlen(char *s);
 
-unsigned int _strspn(char *s, char *accept);
+void _puts(char *str);
 
-char *_strpbrk(char *s, char *accept);
+void print_rev(char *s);
 
-char *_strstr(char *haystack, char *needle);
+void rev_string(char *s);
 
-void print_chessboard(char (*a)[8]);
+void puts2(char *str);
 
-void print_diagsums(int *a, int size);
+void puts_half(char *str);
 
-void set_string(char **s, char *to);
+void print_array(int *a, int n);
 
+char *_strcpy(char *dest, char *src);
+
+int _atoi(char *s);
