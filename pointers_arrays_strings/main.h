@@ -1,23 +1,40 @@
 int _putchar(char c);
 
-void reset_to_98(int *n);
+/* 0-strcat.c */
+char *_strcat(char *dest, char *src);
 
-void swap_int(int *a, int *b);
+/* 1-strncat.c */
+char *_strncat(char *dest, char *src, int n);
 
-int _strlen(char *s);
+/* 2-strncpy.c */
+char *_strncpy(char *dest, char *src, int n);
 
-void _puts(char *str);
+/* 3-strcmp.c */
+int _strcmp(char *s1, char *s2);
 
-void print_rev(char *s);
+/* 4-rev_array.c */
+void reverse_array(int *a, int n);
 
-void rev_string(char *s);
+/* 5-string_toupper.c */
+char *string_toupper(char *);
 
-void puts2(char *str);
+/* 6-cap_string.c */
+char *cap_string(char *);
 
-void puts_half(char *str);
+/* 7-leet.c */
+char *leet(char *);
 
-void print_array(int *a, int n);
+/* 8-rot13.c */
+char *rot13(char *);
 
-char *_strcpy(char *dest, char *src);
+/* 101-magic.c */
+void print_number(int n);
 
-int _atoi(char *s);
+/* 102-infinite_add.c */
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+
+/* 103-print_buffer.c */
+void print_buffer(char *b, int size);
+
+int _strlen(char *); 
+
