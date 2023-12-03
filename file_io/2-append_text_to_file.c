@@ -1,23 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
- * main - check the code
+ * append_text_to_file - appends text at the end of a file.
+ * @filename: the name of the file.
+ * @text_content: the NULL terminated string to add at the end of the file.
  *
- * Return: Always 0.
+ * Return: 1 on success, -1 on failure.
  */
-int main(int ac, char **av)
+int append_text_to_file(const char *filename, char *text_content)
 {
-	int res;
+    int fd;
+    ssize_t len = 0, wr;
 
-	if (ac != 3)
-	{
-		dprintf(2, "Usage: %s filename text\n", av[0]);
-		exit(1);
-	}
-	res = append_text_to_file(av[1], av[2]);
-	printf("-> %i)\n", res);
-	return (0);
+    if (filename == NULL)
+        return (-1);
+
+    /* Open the file with append mode */
+    fd = open(filename, O_WRONLY | O_APPEND);
+    if (fd == -1)
+        return (-1);
+
+    /* If text_content is NULL, don't append anything but check if file exists */
+    if (text_content != NULL)
+    {
+        while (text_content[len])
+            len++;
+        wr = write(fd, text_content, len);
+        if (wr == -1)
+        {
+            close(fd);
+            return (-1);
+        }
+    }
+
+    close(fd);
+    return (1);
 }
 
