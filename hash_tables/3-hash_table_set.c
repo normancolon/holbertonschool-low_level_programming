@@ -14,13 +14,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
     hash_node_t *new_node, *temp;
     unsigned long int index;
-
     if (ht == NULL || key == NULL || *key == '\00' || value == NULL)
         return (0);
-
     /* Get the index for the key */
     index = key_index((const unsigned char *)key, ht->size);
-
     /* Check for collision - if the key already exists, update the value */
     temp = ht->array[index];
     while (temp != NULL)
@@ -33,12 +30,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
         }
         temp = temp->next;
     }
-
     /* Create a new node */
     new_node = malloc(sizeof(hash_node_t));
     if (new_node == NULL)
         return (0);
-
     new_node->key = strdup(key);
     new_node->value = strdup(value);
     if (new_node->key == NULL || new_node->value == NULL)
@@ -46,10 +41,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
         free(new_node);
         return (0);
     }
-
     /* Insert the new node at the beginning of the list to handle collision */
     new_node->next = ht->array[index];
     ht->array[index] = new_node;
-
     return (1);
 }

@@ -9,10 +9,8 @@ void hash_table_delete(hash_table_t *ht)
 {
     hash_node_t *node, *temp;
     unsigned long int i;
-
     if (ht == NULL)
         return;
-
     /* Iterate through each index in the array */
     for (i = 0; i < ht->size; i++)
     {
@@ -26,7 +24,6 @@ void hash_table_delete(hash_table_t *ht)
             free(temp);
         }
     }
-
     /* Free the array and the hash table structure itself */
     free(ht->array);
     free(ht);
